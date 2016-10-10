@@ -1,0 +1,64 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'realm-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.2"
+    defaultConfig {
+        applicationId "com.moka.mokatoyapp"
+        minSdkVersion 19
+        targetSdkVersion 24
+        versionCode 1
+        versionName "0.0.1"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$rootProject.ext.kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$rootProject.ext.kotlin_version"
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile "com.android.support:appcompat-v7:$rootProject.ext.android_support_version"
+    compile "com.android.support:recyclerview-v7:$rootProject.ext.android_support_version"
+
+    /* Kotlin */
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$rootProject.ext.kotlin_version"
+
+    /* rx Android / java */
+    compile "io.reactivex:rxandroid:$rootProject.ext.rx_android"
+    compile "io.reactivex:rxjava:$rootProject.ext.rx_java"
+    compile "com.jakewharton.rxbinding:rxbinding-kotlin:$rootProject.ext.rx_binding"
+
+    /* dagger */
+    compile "com.google.dagger:dagger:$rootProject.ext.dagger_version"
+    kapt "com.google.dagger:dagger-compiler:$rootProject.ext.dagger_version"
+    provided 'javax.annotation:jsr250-api:1.0'
+
+    /* Runtime Permission */
+    compile "com.github.hotchemi:permissionsdispatcher:$rootProject.ext.runtime_permission"
+    kapt "com.github.hotchemi:permissionsdispatcher-processor:$rootProject.ext.runtime_permission"
+
+    /* test */
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+}
