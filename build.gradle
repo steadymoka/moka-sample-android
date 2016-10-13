@@ -10,6 +10,7 @@ ext {
     rx_binding = '0.4.0'
     play_services = '9.4.0'
     runtime_permission = '2.1.3'
+    glide_version = '3.5.2'
 }
 
 buildscript {
@@ -17,7 +18,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.0'
+        classpath 'com.android.tools.build:gradle:2.2.1'
         classpath "io.realm:realm-gradle-plugin:2.0.2"
 
         // NOTE: Do not place your application dependencies here; they belong

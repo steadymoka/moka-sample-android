@@ -56,6 +56,16 @@ dependencies {
     compile "com.github.hotchemi:permissionsdispatcher:$rootProject.ext.runtime_permission"
     kapt "com.github.hotchemi:permissionsdispatcher-processor:$rootProject.ext.runtime_permission"
 
+    /* Image Loader */
+    compile "com.github.bumptech.glide:glide:$rootProject.ext.glide_version"
+
+    /* Server API Communication */
+    compile "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofit_version"
+    compile "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofit_version"
+    compile "com.squareup.retrofit2:adapter-rxjava:$rootProject.ext.retrofit_version"
+    compile "com.squareup.okhttp3:okhttp:$rootProject.ext.okhttp_version"
+    compile 'com.squareup.okhttp3:logging-interceptor:3.2.0'
+
     /* test */
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
