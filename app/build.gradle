@@ -64,7 +64,10 @@ dependencies {
     compile "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofit_version"
     compile "com.squareup.retrofit2:adapter-rxjava:$rootProject.ext.retrofit_version"
     compile "com.squareup.okhttp3:okhttp:$rootProject.ext.okhttp_version"
-    compile 'com.squareup.okhttp3:logging-interceptor:3.2.0'
+    compile "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okhttp_logging"
+
+    /* Gpu Image */
+    compile 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
 
     /* test */
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {

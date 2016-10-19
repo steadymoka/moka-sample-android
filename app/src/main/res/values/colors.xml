@@ -5,6 +5,15 @@
 	<color name="colorPrimaryDark">#303F9F</color>
 	<color name="colorAccent">#FF4081</color>
 
+	<color name="base_text_view_color">#FF616161</color>
+
+	<!-- pure colors -->
+	<color name="white">#FFFFFFFF</color>
+	<color name="white_pressed">#FFDDDDDD</color>
+	<color name="transparency">#00000000</color>
+	<color name="transparency_pressed">#22000000</color>
+	<color name="black">#FF000000</color>
 	<color name="red">#FFEF1424</color>
+	<color name="gray">#FFD2D2D2</color>
 
 </resources>

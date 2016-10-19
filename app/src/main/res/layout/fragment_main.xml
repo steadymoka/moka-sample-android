@@ -1,13 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical">
 
-	<TextView
-		android:id="@+id/textView_a"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"/>
+	<RelativeLayout
+		android:id="@+id/drawing_view_container"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical">
 
-</LinearLayout>
+		<jp.co.cyberagent.android.gpuimage.GPUImageView
+			android:id="@+id/gpuImageView"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"/>
+
+	</RelativeLayout>
+
+	<android.support.v7.widget.RecyclerView
+		android:id="@+id/recyclerView"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_below="@+id/drawing_view_container"
+		android:background="@color/gray"/>
+
+	<ImageView
+		android:id="@+id/imageView_a"
+		android:layout_width="50dp"
+		android:layout_height="50dp"
+		android:layout_below="@+id/drawing_view_container"
+		android:background="@color/black"/>
+
+	<ImageView
+		android:id="@+id/imageView_b"
+		android:layout_width="50dp"
+		android:layout_height="50dp"
+		android:layout_below="@+id/drawing_view_container"
+		android:layout_toRightOf="@+id/imageView_a"
+		android:background="@color/red"/>
+
+	<ImageView
+		android:id="@+id/imageView_c"
+		android:layout_width="50dp"
+		android:layout_height="50dp"
+		android:layout_below="@+id/drawing_view_container"
+		android:layout_toRightOf="@+id/imageView_b"
+		android:background="@color/white"/>
+
+	<ImageView
+		android:id="@+id/imageView_d"
+		android:layout_width="50dp"
+		android:layout_height="50dp"
+		android:layout_below="@+id/drawing_view_container"
+		android:layout_toRightOf="@+id/imageView_c"
+		android:background="@color/colorPrimary"/>
+
+	<ImageView
+		android:id="@+id/imageView_e"
+		android:layout_width="50dp"
+		android:layout_height="50dp"
+		android:layout_below="@+id/drawing_view_container"
+		android:layout_toRightOf="@+id/imageView_d"
+		android:background="@color/colorAccent"/>
+
+</RelativeLayout>
