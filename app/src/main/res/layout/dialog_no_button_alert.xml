@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:background="@drawable/shape_base_gray_round_background"
+	android:gravity="center"
+	android:orientation="vertical"
+	android:paddingTop="16dp">
+
+	<ImageView
+		android:id="@+id/imageView_icon"
+		android:layout_width="match_parent"
+		android:layout_height="36dp"
+		android:layout_marginBottom="16dp"/>
+
+	<TextView
+		android:id="@+id/textView_message"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="16dp"
+		android:layout_marginLeft="16dp"
+		android:layout_marginRight="16dp"
+		android:gravity="center"
+		android:lineSpacingExtra="3dp"
+		android:textSize="20dp"/>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="48dp">
+
+		<View
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="3"/>
+
+		<TextView
+			android:id="@+id/button_cancel"
+			style="@style/dialogButtonTextStyle"
+			android:background="?attr/selectableItemBackground"
+			android:text="취소"
+			android:textColor="@color/red"/>
+
+		<TextView
+			android:id="@+id/button_ok"
+			style="@style/dialogButtonTextStyle"
+			android:background="?attr/selectableItemBackground"
+			android:text="확인"
+			android:textColor="@color/base_color_prime"/>
+
+	</LinearLayout>
+
+</LinearLayout>

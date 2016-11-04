@@ -2,6 +2,7 @@ package com.moka.framework.extenstion
 
 import android.app.Activity
 import android.content.Context
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import rx.Observable
 import rx.Subscription
@@ -31,4 +32,11 @@ fun postDelay(work: () -> Unit, timeMillis: Long = 500): Subscription {
     return Observable.timer(timeMillis, TimeUnit.MILLISECONDS)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ work() }, { e -> }, {})
+}
+
+fun hideSoftKey(activity: Activity) {
+    val inputMethodManager = activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    val currentFocus = activity.currentFocus
+    if (null != currentFocus)
+        inputMethodManager.hideSoftInputFromWindow(currentFocus.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
 }

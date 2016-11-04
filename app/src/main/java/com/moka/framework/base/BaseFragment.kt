@@ -1,10 +1,12 @@
 package com.moka.framework.base
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import com.moka.framework.util.MLog
 import rx.subscriptions.CompositeSubscription
 
@@ -55,6 +57,28 @@ abstract class BaseFragment : Fragment() {
 
         if (null != compositeSubscription)
             compositeSubscription!!.clear()
+    }
+
+    /** **/
+
+    fun getCompositeSubscription(): CompositeSubscription {
+        if (null == compositeSubscription)
+            compositeSubscription = CompositeSubscription()
+        return compositeSubscription!!
+    }
+
+    fun dismissSoftKeyOnTouch(rootView: View) {
+        rootView.setOnTouchListener { view, motionEvent ->
+            hideSoftKey()
+            false
+        }
+    }
+
+    fun hideSoftKey() {
+        val inputMethodManager = activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        val currentFocus = activity.currentFocus
+        if (null != currentFocus)
+            inputMethodManager.hideSoftInputFromWindow(currentFocus.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
     }
 
 }
