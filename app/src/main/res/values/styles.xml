@@ -15,4 +15,30 @@
 		<item name="colorAccent">@color/colorAccent</item>
 	</style>
 
+	<!-- Divider -->
+	<style name="VerticalDivider">
+		<item name="android:layout_width">1px</item>
+		<item name="android:layout_height">match_parent</item>
+		<item name="android:background">#FFE6E6E6</item>
+	</style>
+
+	<style name="HorizontalDivider">
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">1px</item>
+		<item name="android:background">#FFE6E6E6</item>
+	</style>
+
+	<!-- dialog button text style -->
+	<style name="dialogButtonTextStyle">
+		<item name="android:textColor">@color/base_color_prime</item>
+		<item name="android:layout_width">60dp</item>
+		<item name="android:layout_height">36dp</item>
+		<item name="android:layout_marginRight">12dp</item>
+		<item name="android:layout_marginBottom">6dp</item>
+		<item name="android:layout_marginTop">6dp</item>
+		<item name="android:textSize">12dp</item>
+		<item name="android:background">?attr/selectableItemBackground</item>
+		<item name="android:gravity">center</item>
+	</style>
+
 </resources>

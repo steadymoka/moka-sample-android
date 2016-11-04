@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	android:id="@+id/relativeLayout_container"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<FrameLayout
+		android:id="@+id/toolbar_frameLayout_content"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_marginTop="?attr/actionBarSize"/>
+
+	<FrameLayout
+		android:id="@+id/frameLayout_toolbarBackground"
+		android:layout_width="match_parent"
+		android:layout_height="?attr/actionBarSize"
+		android:background="@color/base_color_prime"/>
+
+	<RelativeLayout
+		android:id="@+id/relativeLayout_toolbar"
+		android:layout_width="match_parent"
+		android:layout_height="?attr/actionBarSize"
+		android:elevation="8dp">
+
+		<ImageView
+			android:id="@+id/imageView_home"
+			android:layout_width="?attr/actionBarSize"
+			android:layout_height="?attr/actionBarSize"
+			android:background="?android:attr/selectableItemBackground"
+			android:padding="16dp"
+			android:src="@mipmap/ic_back_white"/>
+
+		<TextView
+			android:id="@+id/textView_toolbarTitle"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerInParent="true"
+			android:gravity="center"
+			android:text="Gdg Inceon Dev Fest"
+			android:textColor="@color/white"
+			android:textSize="14dp"/>
+
+		<ImageView
+			android:id="@+id/imageView_menu"
+			android:layout_width="?attr/actionBarSize"
+			android:layout_height="?attr/actionBarSize"
+			android:layout_alignParentRight="true"
+			android:background="?android:attr/selectableItemBackground"
+			android:padding="16dp"/>
+
+		<TextView
+			android:id="@+id/textView_menu"
+			android:layout_width="?attr/actionBarSize"
+			android:layout_height="?attr/actionBarSize"
+			android:layout_alignParentRight="true"
+			android:background="?android:attr/selectableItemBackground"
+			android:gravity="center"
+			android:textColor="@color/white"
+			android:textSize="13dp"/>
+
+	</RelativeLayout>
+
+	<View
+		android:id="@+id/view_shadow"
+		android:layout_width="match_parent"
+		android:layout_height="8dp"
+		android:layout_gravity="top"
+		android:layout_marginTop="?attr/actionBarSize"
+		android:background="@drawable/shadow_top_style"/>
+
+
+</RelativeLayout>

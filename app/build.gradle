@@ -38,6 +38,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile "com.android.support:appcompat-v7:$rootProject.ext.android_support_version"
     compile "com.android.support:recyclerview-v7:$rootProject.ext.android_support_version"
+    compile "com.nineoldandroids:library:2.4.0"
 
     /* Kotlin */
     compile "org.jetbrains.kotlin:kotlin-stdlib:$rootProject.ext.kotlin_version"

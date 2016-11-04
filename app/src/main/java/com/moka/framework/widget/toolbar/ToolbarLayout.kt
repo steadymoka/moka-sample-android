@@ -11,7 +11,7 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
-import com.moka.gdgqrr.R
+import com.moka.mokatoyapp.R
 import com.nineoldandroids.view.ViewHelper
 
 
