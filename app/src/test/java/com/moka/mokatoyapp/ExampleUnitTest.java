@@ -3,6 +3,8 @@ package com.moka.mokatoyapp;
 
 import org.junit.Test;
 
+import kotlin.jvm.Throws;
+
 import static org.junit.Assert.*;
 
 

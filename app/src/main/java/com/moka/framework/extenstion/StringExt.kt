@@ -7,10 +7,10 @@ import com.moka.mokatoyapp.server.FailureResponse
 fun String.parseFailure(): FailureResponse? {
     val result: FailureResponse?
 
-    try {
-        result = Gson().fromJson(this, FailureResponse::class.java)
+    result = try {
+        Gson().fromJson(this, FailureResponse::class.java)
     } catch(err: JsonSyntaxException) {
-        result = null
+        null
     }
     return result
 }
@@ -18,10 +18,10 @@ fun String.parseFailure(): FailureResponse? {
 fun <T> String.parse(className: Class<T>): T? {
     val result: T?
 
-    try {
-        result = Gson().fromJson(this, className)
+    result = try {
+        Gson().fromJson(this, className)
     } catch(err: JsonSyntaxException) {
-        result = null
+        null
     }
     return result
 }

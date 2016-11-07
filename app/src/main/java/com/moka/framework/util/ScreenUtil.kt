@@ -54,10 +54,6 @@ class ScreenUtil {
                     return 19
             }
 
-        fun setPaddingTopStatusBarSizeTo(view: View) {
-            view.setPadding(0, statusBarSize, 0, 0)
-        }
-
         val toolBarSize: Int
             get() = context.resources.getDimensionPixelSize(R.dimen.abc_action_bar_default_height_material)
 
