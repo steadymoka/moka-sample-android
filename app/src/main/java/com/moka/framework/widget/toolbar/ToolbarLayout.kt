@@ -8,24 +8,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import android.widget.ImageView
 import android.widget.RelativeLayout
-import android.widget.TextView
 import com.moka.mokatoyapp.R
 import com.nineoldandroids.view.ViewHelper
+import kotlinx.android.synthetic.main.toolbar_moka.view.*
 
 
 class ToolbarLayout : FrameLayout {
 
     private var rootViewOfToolbarLayout: View? = null
-    private var toolbar_frameLayout_content: FrameLayout? = null
-    private var imageView_home: ImageView? = null
-    private var imageView_menu: ImageView? = null
-    private var textView_menu: TextView? = null
-    private var textView_toolbarTitle: TextView? = null
-    private var frameLayout_toolbarBackground: FrameLayout? = null
-    private var view_shadow: View? = null
-    private var relativeLayout_toolbar: RelativeLayout? = null
 
     private var homeButtonListener: (() -> Unit?)? = null
     private var menuButtonListener: (() -> Unit?)? = null
@@ -45,15 +36,7 @@ class ToolbarLayout : FrameLayout {
     private fun initView() {
         rootViewOfToolbarLayout = LayoutInflater.from(context).inflate(R.layout.toolbar_moka, null)
 
-        toolbar_frameLayout_content = rootViewOfToolbarLayout?.findViewById(R.id.toolbar_frameLayout_content) as FrameLayout?
-        imageView_home = rootViewOfToolbarLayout?.findViewById(R.id.imageView_home) as ImageView?
-        imageView_menu = rootViewOfToolbarLayout?.findViewById(R.id.imageView_menu) as ImageView?
-        textView_menu = rootViewOfToolbarLayout?.findViewById(R.id.textView_menu) as TextView?
-        textView_toolbarTitle = rootViewOfToolbarLayout?.findViewById(R.id.textView_toolbarTitle) as TextView?
-        frameLayout_toolbarBackground = rootViewOfToolbarLayout?.findViewById(R.id.frameLayout_toolbarBackground) as FrameLayout?
-        view_shadow = rootViewOfToolbarLayout?.findViewById(R.id.view_shadow)
         view_shadow?.bringToFront()
-        relativeLayout_toolbar = rootViewOfToolbarLayout?.findViewById(R.id.relativeLayout_toolbar) as RelativeLayout?
 
         imageView_home?.setOnClickListener { if (null != homeButtonListener) homeButtonListener!!() }
         imageView_menu?.setOnClickListener { if (null != menuButtonListener) menuButtonListener!!() }
@@ -213,17 +196,6 @@ class ToolbarLayout : FrameLayout {
             }
 
             toolbar_frameLayout_content?.layoutParams = layoutParams
-        }
-    }
-
-    fun toolBarToLonely(isLonely: Boolean) {
-        if (isLonely) {
-            toolbar_frameLayout_content?.visibility = View.GONE
-            view_shadow?.visibility = View.GONE
-        }
-        else {
-            toolbar_frameLayout_content?.visibility = View.VISIBLE
-            view_shadow?.visibility = View.VISIBLE
         }
     }
 

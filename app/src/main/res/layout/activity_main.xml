@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-	android:id="@+id/frameLayout_container"
+<com.moka.framework.widget.toolbar.ToolbarLayout
+	android:id="@+id/toolbarLayout"
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:background="#FFF2F2F2"
-	tools:context="com.moka.mokatoyapp.vp.MainActivity"/>
+	android:layout_height="match_parent">
+
+	<FrameLayout
+		android:id="@+id/frameLayout_container"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="#FFF2F2F2"/>
+
+</com.moka.framework.widget.toolbar.ToolbarLayout>

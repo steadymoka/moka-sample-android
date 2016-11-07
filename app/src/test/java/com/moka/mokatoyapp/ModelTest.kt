@@ -44,7 +44,7 @@ open class ModelTest {
         val mockModel = MockModel()
         mockModel.value = "test_value"
 
-        MockModel.update(mockModel, {
+        MockModel.update(mockModel, { mockModel ->
             mockModel.value = "test_update"
         })
 
@@ -80,8 +80,8 @@ open class ModelTest {
                 return mockModel
             }
 
-            fun update(mockModel: MockModel, update: () -> Unit) {
-                update()
+            fun update(mockModel: MockModel, update: (mockModel: MockModel) -> Unit) {
+                update(mockModel)
                 ob.onUpdate(mockModel)
             }
 

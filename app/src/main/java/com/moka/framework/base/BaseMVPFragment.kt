@@ -7,12 +7,12 @@ import android.view.View
 
 abstract class BaseMVPFragment : BaseFragment(), BaseMvpView {
 
-    private var presenter: BasePresenter<BaseMVPFragment>? = null
+    private var presenter: BasePresenter<BaseMvpView>? = null
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        presenter = getPresenter()
+        presenter = getPresenter() as BasePresenter<BaseMvpView>
         if (null != presenter)
             presenter!!.attachView(this)
         onViewCreated_afterAttachViewToPresenter()
@@ -26,6 +26,6 @@ abstract class BaseMVPFragment : BaseFragment(), BaseMvpView {
             presenter!!.detachView()
     }
 
-    protected abstract fun getPresenter(): BasePresenter<BaseMVPFragment>
+    protected abstract fun getPresenter(): BasePresenter<*>
 
 }

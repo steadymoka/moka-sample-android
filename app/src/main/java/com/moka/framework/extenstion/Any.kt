@@ -2,21 +2,23 @@ package com.moka.framework.extenstion
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import com.moka.mokatoyapp.R
 import rx.Observable
 import rx.Subscription
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
 
-fun Any.workInBack(work: () -> Unit) {
+fun workInBack(work: () -> Unit) {
     Observable.just(true)
             .observeOn(Schedulers.io())
             .subscribe({ work() })
 }
 
-fun Any.workInBackground(work: () -> Unit) {
+fun workInBackground(work: () -> Unit) {
     Schedulers.io().createWorker().schedule { work() }
 }
 
@@ -39,4 +41,28 @@ fun hideSoftKey(activity: Activity) {
     val currentFocus = activity.currentFocus
     if (null != currentFocus)
         inputMethodManager.hideSoftInputFromWindow(currentFocus.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
+}
+
+/**
+ * Start Activity Utils
+ **/
+
+fun Activity.onAnim(toGoClass: Class<*>) {
+    this.startActivity(Intent(this, toGoClass))
+    this.overridePendingTransition(R.anim.slide_in_right, R.anim.fade_out_short)
+}
+
+fun Activity.onAnim(intent: Intent) {
+    this.startActivity(intent)
+    this.overridePendingTransition(R.anim.slide_in_right, R.anim.fade_out_short)
+}
+
+fun Activity.noAnim(toGoClass: Class<*>) {
+    this.startActivity(Intent(this, toGoClass))
+    this.overridePendingTransition(R.anim.fade_in_short, R.anim.fade_in_short)
+}
+
+fun Activity.noAnim(intent: Intent) {
+    this.startActivity(intent)
+    this.overridePendingTransition(R.anim.fade_in_short, R.anim.fade_in_short)
 }

@@ -1,19 +1,21 @@
 package com.moka.framework.base
 
-import android.content.Context
+import android.app.AlertDialog
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
+import com.moka.framework.extenstion.hideSoftKey
 import com.moka.framework.util.MLog
+import com.moka.mokatoyapp.R
 import rx.subscriptions.CompositeSubscription
 
 abstract class BaseFragment : Fragment() {
 
     private var TAG = javaClass.simpleName
     private var compositeSubscription: CompositeSubscription? = null
+    private var loadingDialog: AlertDialog? = null
 
     /**
      * LifeCycle method implement
@@ -69,16 +71,36 @@ abstract class BaseFragment : Fragment() {
 
     fun dismissSoftKeyOnTouch(rootView: View) {
         rootView.setOnTouchListener { view, motionEvent ->
-            hideSoftKey()
+            hideSoftKey(activity)
             false
         }
     }
 
-    fun hideSoftKey() {
-        val inputMethodManager = activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        val currentFocus = activity.currentFocus
-        if (null != currentFocus)
-            inputMethodManager.hideSoftInputFromWindow(currentFocus.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
+    /**
+     * About LoadingDailog
+     */
+
+    private fun getLoadingDialog(): AlertDialog {
+        if (null == loadingDialog && null != activity) {
+            val builder = AlertDialog.Builder(activity)
+            val rootView = activity.layoutInflater.inflate(R.layout.dialog_loading, null)
+            builder.setView(rootView)
+            builder.setCancelable(false)
+
+            loadingDialog = builder.create()
+        }
+
+        return loadingDialog!!
+    }
+
+    fun showLoadingDialog() {
+        if (!getLoadingDialog().isShowing && isAdded)
+            loadingDialog!!.show()
+    }
+
+    fun dismissLoadingDialog() {
+        if (null != loadingDialog && loadingDialog!!.isShowing)
+            loadingDialog!!.dismiss()
     }
 
 }

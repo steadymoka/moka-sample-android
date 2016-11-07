@@ -9,7 +9,7 @@ android {
     buildToolsVersion "24.0.3"
     defaultConfig {
         applicationId "com.moka.mokatoyapp"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 24
         versionCode 1
         versionName "0.0.1"

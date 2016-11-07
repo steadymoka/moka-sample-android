@@ -30,4 +30,6 @@
 	<color name="base_text_view_non_selected">#FFCCCCCC</color>
 	<color name="base_edit_text_view">#FFCCCCCC</color>
 
+	<drawable name="touchFeedback">#CFD8DC</drawable>
+
 </resources>
