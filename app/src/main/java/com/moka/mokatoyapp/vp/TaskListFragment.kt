@@ -6,6 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.moka.framework.base.BaseMVPFragment
 import com.moka.framework.base.BasePresenter
+import com.moka.framework.extenstion.init
+import com.moka.framework.widget.adapter.BaseAdapter
+import com.moka.framework.widget.adapter.IAdapterView
 import com.moka.framework.widget.toolbar.ToolbarLayout
 import com.moka.mokatoyapp.MokaToyApplication
 import com.moka.mokatoyapp.R
@@ -19,7 +22,14 @@ class TaskListFragment : BaseMVPFragment(), TaskListView {
     @Inject
     lateinit var presenter: TaskListPresenter
 
+    @Inject
+    lateinit var adapterView: IAdapterView
+
     override fun getPresenter(): BasePresenter<*> = presenter
+
+    /**
+     * LifeCycle function
+     */
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -27,14 +37,15 @@ class TaskListFragment : BaseMVPFragment(), TaskListView {
 
         DaggerFragmentComponent.builder()
                 .applicationComponent((activity.application as MokaToyApplication).applicationComponent)
-                .fragmentModule(FragmentModule(activity))
+                .fragmentModule(FragmentModule(activity, TaskListAdapter(activity) as BaseAdapter<*, *>))
                 .build().inject(this)
 
         return rootView
     }
 
     override fun onViewCreated_afterAttachViewToPresenter() {
-        recyclerView
+        recyclerView.init(activity, adapterView as TaskListAdapter)
+        presenter.aaa()
     }
 
     /**

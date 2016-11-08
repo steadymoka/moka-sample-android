@@ -1,9 +1,7 @@
 package com.moka.mokatoyapp._di.module
 
 import android.app.Activity
-import com.moka.framework.widget.adapter.BaseAdapter
-import com.moka.framework.widget.adapter.ItemData
-import com.moka.framework.widget.adapter.RecyclerItemView
+import com.moka.framework.widget.adapter.*
 import com.moka.mokatoyapp._di.PerFragment
 import dagger.Module
 import dagger.Provides
@@ -15,9 +13,9 @@ class FragmentModule {
         this.activity = activity
     }
 
-    constructor(activity: Activity, adapter: BaseAdapter<ItemData, RecyclerItemView<ItemData>>) {
+    constructor(activity: Activity, adapter: BaseAdapter<*, *>) {
         this.activity = activity
-        this.adapter = adapter
+        this.adapter = adapter as BaseAdapter<ItemData, RecyclerItemView<ItemData>>
     }
 
     private lateinit var activity: Activity
@@ -29,6 +27,14 @@ class FragmentModule {
 
     @Provides
     @PerFragment
-    fun adapter() = adapter
+    fun adapterModel(): IAdapterModel {
+        return adapter
+    }
+
+    @Provides
+    @PerFragment
+    fun adapterView(): IAdapterView {
+        return adapter
+    }
 
 }

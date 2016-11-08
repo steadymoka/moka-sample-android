@@ -37,8 +37,14 @@ fun RecyclerView.hideSoftKeyOnScroll(activity: Activity) {
     })
 }
 
-fun <T : ItemData, V : RecyclerItemView<T>> RecyclerView.init(activity: Activity, adapter: BaseAdapter<T, V>) {
-    this.layoutManager = LinearLayoutManager(activity, GridLayoutManager.VERTICAL, false)
+fun <T : ItemData, V : RecyclerItemView<T>> RecyclerView.init(activity: Activity, adapter: BaseAdapter<T, V>, spanCount: Int = 1) {
+    this.layoutManager = GridLayoutManager(activity, spanCount, GridLayoutManager.VERTICAL, false)
+    adapter.items = ArrayList<T>()
+    this.adapter = adapter
+}
+
+fun <T : ItemData, V : RecyclerItemView<T>> RecyclerView.initReverse(activity: Activity, adapter: BaseAdapter<T, V>, spanCount: Int = 1) {
+    this.layoutManager = GridLayoutManager(activity, spanCount, GridLayoutManager.VERTICAL, true)
     adapter.items = ArrayList<T>()
     this.adapter = adapter
 }

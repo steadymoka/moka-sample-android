@@ -9,7 +9,7 @@ import java.util.*
 
 
 abstract class BaseAdapter<DATA : ItemData, in VIEW : RecyclerItemView<DATA>>
-constructor(private val context: Context) : HeaderFooterRecyclerViewAdapter() {
+constructor(private val context: Context) : HeaderFooterRecyclerViewAdapter(), IAdapterModel, IAdapterView {
 
     var headerData: DATA? = null
     var footerData: DATA? = null
@@ -87,64 +87,68 @@ constructor(private val context: Context) : HeaderFooterRecyclerViewAdapter() {
     /**
      */
 
-    fun add(data: DATA?) {
+    override fun add(data: ItemData?) {
         if (null != data) {
-            items!!.add(data)
+            items!!.add(data as DATA)
             notifyDataSetChanged()
         }
     }
 
-    fun add(index: Int, data: DATA?) {
+    override fun add(index: Int, data: ItemData?) {
         if (0 <= index && index <= items!!.size && null != data) {
-            items!!.add(index, data)
+            items!!.add(index, data as DATA)
             notifyDataSetChanged()
         }
     }
 
-    fun addAll(items: List<DATA>?) {
-        if (null != items && 0 < items.size && this.items!!.addAll(items))
+    override fun addAll(items: List<ItemData>?) {
+        if (null != items && 0 < items.size && this.items!!.addAll(items as List<DATA>))
             notifyDataSetChanged()
     }
 
-    fun remove(item: DATA?) {
+    override fun remove(item: ItemData?) {
         if (null != item) {
             this.items!!.remove(item)
             notifyDataSetChanged()
         }
     }
 
-    fun addHeaderView(headerView: View) {
+    override fun addHeaderView(headerView: View) {
         this.headerView = headerView
         notifyDataSetChanged()
     }
 
-    fun addFooterView(footerView: View) {
+    override fun addFooterView(footerView: View) {
         this.footerView = footerView
         notifyDataSetChanged()
     }
 
-    fun removeHeaderView() {
+    override fun removeHeaderView() {
         this.headerView = null
         notifyDataSetChanged()
     }
 
-    fun removeFooterView() {
+    override fun removeFooterView() {
         this.footerView = null
         notifyDataSetChanged()
     }
 
-    fun clear() {
+    override fun clear() {
         if (null != items) {
             this.items = ArrayList<DATA>()
             notifyDataSetChanged()
         }
     }
 
-    fun notifyItemChanged(data: DATA?) {
+    override fun notifyItemChanged(data: ItemData?) {
         val index = items!!.indexOf(data)
         if (index < 0)
             return
         notifyContentItemChanged(index)
+    }
+
+    override fun refresh() {
+        notifyDataSetChanged()
     }
 
     private class Header(itemView: View?) : RecyclerView.ViewHolder(itemView)
