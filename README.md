@@ -6,6 +6,11 @@ and reactive architecture
 
 The contents of the screen and the app has made a similar reference to Google's sample project. [https://github.com/googlesamples/android-architecture](https://github.com/googlesamples/android-architecture)
 
+### Tag & branch
+`branch: sticker-image` is sample app with [https://github.com/CyberAgent/android-gpuimage](https://github.com/CyberAgent/android-gpuimage)
+
+`tag: base-dagger-mvp` is for boilerplate code to create another project 
+
 ### Libraries
 - [Kotlin](https://github.com/JetBrains/kotlin)
 - [Realm-java](https://github.com/realm/realm-java)
@@ -14,7 +19,6 @@ The contents of the screen and the app has made a similar reference to Google's 
 - [RxJava](https://github.com/ReactiveX/RxJava) and [RxAndroid](https://github.com/ReactiveX/RxAndroid)
 - [Retrofit 2](http://square.github.io/retrofit/)
 - [Dagger 2](http://google.github.io/dagger/)
-- [Glide](https://github.com/bumptech/glide)
 
 ### License
 ```
