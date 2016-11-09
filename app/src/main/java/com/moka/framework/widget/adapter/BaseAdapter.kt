@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import java.util.*
 
-
+@Suppress("UNCHECKED_CAST")
 abstract class BaseAdapter<DATA : ItemData, in VIEW : RecyclerItemView<DATA>>
 constructor(private val context: Context) : HeaderFooterRecyclerViewAdapter(), IAdapterModel, IAdapterView {
 
@@ -86,6 +86,13 @@ constructor(private val context: Context) : HeaderFooterRecyclerViewAdapter(), I
 
     /**
      */
+
+    override fun getItemList(): MutableList<ItemData> {
+        if (null != items)
+            return items!! as MutableList<ItemData>
+        else
+            return ArrayList()
+    }
 
     override fun add(data: ItemData?) {
         if (null != data) {

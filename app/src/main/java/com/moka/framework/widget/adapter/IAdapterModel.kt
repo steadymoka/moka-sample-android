@@ -4,6 +4,8 @@ import android.view.View
 
 interface IAdapterModel {
 
+    fun getItemList(): MutableList<ItemData>
+
     fun add(data: ItemData?)
 
     fun add(index: Int, data: ItemData?)

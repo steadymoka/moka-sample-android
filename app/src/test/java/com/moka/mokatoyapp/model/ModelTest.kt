@@ -1,7 +1,7 @@
-package com.moka.mokatoyapp
+package com.moka.mokatoyapp.model
 
 import com.moka.mokatoyapp.model.domain.BaseDomain
-import com.moka.mokatoyapp.model.domain.Observe
+import com.moka.mokatoyapp.model.domain.Observer
 import io.realm.annotations.Ignore
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
@@ -12,11 +12,9 @@ open class ModelTest {
 
     @Test
     fun insertTest() {
-        val subscriber = TestSubscriber.create<Observe.Data<MockModel>>()
+        val subscriber = TestSubscriber.create<Observer.Data<MockModel>>()
 
-        MockModel.ob.setOnChangeObservable { observable ->
-            observable.subscribe(subscriber)
-        }
+        MockModel.ob.setOnChangeObservable().subscribe(subscriber)
 
         MockModel.insert({ mockModel ->
             mockModel.value = "test_value"
@@ -35,11 +33,9 @@ open class ModelTest {
 
     @Test
     fun updateTest() {
-        val subscriber = TestSubscriber.create<Observe.Data<MockModel>>()
+        val subscriber = TestSubscriber.create<Observer.Data<MockModel>>()
 
-        MockModel.ob.setOnChangeObservable { observable ->
-            observable.subscribe(subscriber)
-        }
+        MockModel.ob.setOnChangeObservable().subscribe(subscriber)
 
         val mockModel = MockModel()
         mockModel.value = "test_value"
@@ -70,7 +66,7 @@ open class ModelTest {
         companion object {
 
             @Ignore
-            var ob: Observe<MockModel> = Observe()
+            var ob: Observer<MockModel> = Observer()
 
             fun insert(insert: (mockModel: MockModel) -> Unit): MockModel {
                 val mockModel = MockModel()

@@ -4,7 +4,12 @@
 
 	<string name="dialog_loading_textview_wait">잠시만 기다려주세요</string>
 	<string name="activity_main_toast_back_pressed_message">\'뒤로\'버튼을 한번 더 누르면 종료됩니다</string>
+
 	<string name="no_tasks_all">You have no TO-DOs!</string>
 	<string name="no_tasks_add">Add a TO-DO item +</string>
+	<string name="task_marked_complete">Task marked complete</string>
+	<string name="task_marked_active">Task marked active</string>
+	<string name="no_tasks_active">You have no active TO-DOs!</string>
+	<string name="no_tasks_completed">You have no completed TO-DOs!</string>
 
 </resources>

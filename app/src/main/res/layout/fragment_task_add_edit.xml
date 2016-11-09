@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<com.moka.framework.widget.toolbar.ToolbarLayout
+		android:id="@+id/toolbarLayout"
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="match_parent"
+		android:layout_height="?attr/actionBarSize"/>
+
+	<ScrollView
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_below="@+id/toolbarLayout"
+		android:background="#EFEFEF">
+
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical"
+			android:padding="16dp">
+
+			<TextView
+				android:id="@+id/textView_deleteMessage"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:gravity="right"
+				android:paddingBottom="12dp"
+				android:text="삭제하려면 눌려주세요"
+				android:textColor="@color/red"
+				android:textSize="13dp"/>
+
+			<EditText
+				android:id="@+id/editText_title"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_below="@+id/textView_deleteMessage"
+				android:background="@color/white"
+				android:hint="제목을 써주세요"
+				android:lines="1"
+				android:paddingBottom="8dp"
+				android:paddingLeft="6dp"
+				android:paddingRight="6dp"
+				android:paddingTop="8dp"
+				android:textAppearance="@style/TextAppearance.AppCompat.Title"
+				android:textColorHint="@color/base_edit_text_view"/>
+
+			<View
+				android:id="@+id/temp"
+				style="@style/HorizontalDivider"
+				android:layout_height="0dp"
+				android:layout_below="@+id/editText_title"
+				android:layout_marginBottom="8dp"
+				android:layout_marginTop="8dp"/>
+
+			<EditText
+				android:id="@+id/editText_content"
+				android:layout_width="match_parent"
+				android:layout_height="350dp"
+				android:layout_below="@+id/temp"
+				android:background="@color/white"
+				android:gravity="top"
+				android:hint="상세 내용을 입력해주세요"
+				android:paddingBottom="8dp"
+				android:paddingLeft="6dp"
+				android:paddingRight="6dp"
+				android:paddingTop="8dp"
+				android:textColorHint="@color/base_edit_text_view"
+				android:textSize="15dp"/>
+
+		</RelativeLayout>
+
+	</ScrollView>
+
+	<View style="@style/toolbarShadowStyle"/>
+
+</RelativeLayout>

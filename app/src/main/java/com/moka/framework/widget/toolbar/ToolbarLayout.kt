@@ -35,13 +35,11 @@ class ToolbarLayout : FrameLayout {
 
     private fun initView() {
         rootViewOfToolbarLayout = LayoutInflater.from(context).inflate(R.layout.toolbar_moka, null)
-
-        view_shadow?.bringToFront()
-
-        imageView_home?.setOnClickListener { if (null != homeButtonListener) homeButtonListener!!() }
-        imageView_menu?.setOnClickListener { if (null != menuButtonListener) menuButtonListener!!() }
-
         addView(rootViewOfToolbarLayout!!)
+
+        view_shadow.bringToFront()
+        imageView_home.setOnClickListener { if (null != homeButtonListener) homeButtonListener!!() }
+        imageView_menu.setOnClickListener { if (null != menuButtonListener) menuButtonListener!!() }
     }
 
     override fun addView(child: View) {
@@ -70,7 +68,7 @@ class ToolbarLayout : FrameLayout {
     private fun addViewToContentView(child: View) {
         val layoutParams = generateMatchParentLayoutParams()
         child.layoutParams = layoutParams
-        toolbar_frameLayout_content?.addView(child)
+        toolbar_frameLayout_content.addView(child)
     }
 
     override fun addView(child: View, index: Int) {
@@ -98,32 +96,32 @@ class ToolbarLayout : FrameLayout {
      */
 
     fun setHomeIcon(resId: Int) {
-        imageView_home?.setImageResource(resId)
+        imageView_home.setImageResource(resId)
     }
 
     fun setMenuIcon(resId: Int) {
-        imageView_menu?.setImageResource(resId)
+        imageView_menu.setImageResource(resId)
     }
 
     fun setMenuText(menuText: String) {
-        textView_menu?.text = menuText
+        textView_menu.text = menuText
     }
 
     fun setHomeVisible(isVisible: Boolean) {
         if (isVisible)
-            imageView_home?.visibility = View.VISIBLE
+            imageView_home.visibility = View.VISIBLE
         else
-            imageView_home?.visibility = View.GONE
+            imageView_home.visibility = View.GONE
     }
 
     fun setMenuVisible(isVisible: Boolean) {
         if (isVisible) {
-            textView_menu?.visibility = View.VISIBLE
-            imageView_menu?.visibility = View.VISIBLE
+            textView_menu.visibility = View.VISIBLE
+            imageView_menu.visibility = View.VISIBLE
         }
         else {
-            textView_menu?.visibility = View.GONE
-            imageView_menu?.visibility = View.GONE
+            textView_menu.visibility = View.GONE
+            imageView_menu.visibility = View.GONE
         }
     }
 
@@ -140,15 +138,15 @@ class ToolbarLayout : FrameLayout {
      */
 
     fun setToolbarTitle(title: CharSequence) {
-        textView_toolbarTitle?.text = title
+        textView_toolbarTitle.text = title
     }
 
     fun setToolbarTitleColor(color: Int) {
-        textView_toolbarTitle?.setTextColor(color)
+        textView_toolbarTitle.setTextColor(color)
     }
 
     fun setToolbarTitleSize(sizeDP: Int) {
-        textView_toolbarTitle?.setTextSize(TypedValue.COMPLEX_UNIT_DIP, sizeDP.toFloat())
+        textView_toolbarTitle.setTextSize(TypedValue.COMPLEX_UNIT_DIP, sizeDP.toFloat())
     }
 
     /**
@@ -157,12 +155,12 @@ class ToolbarLayout : FrameLayout {
 
     fun setToolbarEnable(isEnable: Boolean) {
         if (isEnable) {
-            imageView_home?.visibility = View.VISIBLE
-            imageView_menu?.visibility = View.VISIBLE
+            imageView_home.visibility = View.VISIBLE
+            imageView_menu.visibility = View.VISIBLE
         }
         else {
-            imageView_home?.visibility = View.GONE
-            imageView_menu?.visibility = View.GONE
+            imageView_home.visibility = View.GONE
+            imageView_menu.visibility = View.GONE
         }
     }
 

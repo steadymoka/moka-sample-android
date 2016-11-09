@@ -47,22 +47,22 @@ fun hideSoftKey(activity: Activity) {
  * Start Activity Utils
  **/
 
-fun Activity.onAnim(toGoClass: Class<*>) {
+fun Activity.startOnAnim(toGoClass: Class<*>) {
     this.startActivity(Intent(this, toGoClass))
     this.overridePendingTransition(R.anim.slide_in_right, R.anim.fade_out_short)
 }
 
-fun Activity.onAnim(intent: Intent) {
+fun Activity.startOnAnim(intent: Intent) {
     this.startActivity(intent)
     this.overridePendingTransition(R.anim.slide_in_right, R.anim.fade_out_short)
 }
 
-fun Activity.noAnim(toGoClass: Class<*>) {
+fun Activity.startNoAnim(toGoClass: Class<*>) {
     this.startActivity(Intent(this, toGoClass))
     this.overridePendingTransition(R.anim.fade_in_short, R.anim.fade_in_short)
 }
 
-fun Activity.noAnim(intent: Intent) {
+fun Activity.startNoAnim(intent: Intent) {
     this.startActivity(intent)
     this.overridePendingTransition(R.anim.fade_in_short, R.anim.fade_in_short)
 }

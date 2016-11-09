@@ -9,6 +9,7 @@ abstract class BaseMVPFragment : BaseFragment(), BaseMvpView {
 
     private var presenter: BasePresenter<BaseMvpView>? = null
 
+    @Suppress("UNCHECKED_CAST")
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

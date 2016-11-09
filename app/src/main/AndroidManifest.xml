@@ -10,13 +10,17 @@
 		android:supportsRtl="true"
 		android:theme="@style/Theme.Moka.NoActionBar">
 
-		<activity android:name=".vp.TaskListActivity">
+		<activity android:name=".vp.tasklist.TaskListActivity">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN"/>
 
 				<category android:name="android.intent.category.LAUNCHER"/>
 			</intent-filter>
 		</activity>
+
+		<activity
+			android:name=".vp.addedittask.AddEditTaskActivity"
+			android:screenOrientation="portrait"/>
 
 	</application>
 

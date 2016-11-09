@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:background="@drawable/shape_dialog_round_background"
+	android:elevation="10dp"
+	android:orientation="vertical">
+
+	<TextView
+		android:id="@+id/textView_allTasks"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="?attr/selectableItemBackground"
+		android:gravity="left"
+		android:paddingBottom="16dp"
+		android:paddingLeft="16dp"
+		android:paddingTop="16dp"
+		android:text="전체 보기"
+		android:textColor="@color/base_text_view_color"
+		android:textSize="14dp"/>
+
+	<ImageView
+		android:id="@+id/imageView_allTasks"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignBottom="@+id/textView_allTasks"
+		android:layout_alignRight="@+id/textView_allTasks"
+		android:layout_alignTop="@+id/textView_allTasks"
+		android:layout_marginRight="16dp"
+		android:src="@drawable/ic_done"
+		android:visibility="gone"/>
+
+	<View
+		android:id="@+id/temp"
+		style="@style/HorizontalDivider"
+		android:layout_below="@+id/textView_allTasks"/>
+
+	<TextView
+		android:id="@+id/textView_activeTasks"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/temp"
+		android:background="?attr/selectableItemBackground"
+		android:gravity="left"
+		android:paddingBottom="16dp"
+		android:paddingLeft="16dp"
+		android:paddingTop="16dp"
+		android:text="진행중인 사항 보기"
+		android:textColor="@color/base_text_view_color"
+		android:textSize="14dp"/>
+
+	<ImageView
+		android:id="@+id/imageView_activeTasks"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignBottom="@+id/textView_activeTasks"
+		android:layout_alignRight="@+id/textView_activeTasks"
+		android:layout_alignTop="@+id/textView_activeTasks"
+		android:layout_marginRight="16dp"
+		android:src="@drawable/ic_done"
+		android:visibility="gone"/>
+
+	<View
+		android:id="@+id/tmep2"
+		style="@style/HorizontalDivider"
+		android:layout_below="@+id/textView_activeTasks"/>
+
+	<TextView
+		android:id="@+id/textView_completedTasks"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/tmep2"
+		android:background="?attr/selectableItemBackground"
+		android:gravity="left"
+		android:paddingBottom="16dp"
+		android:paddingLeft="16dp"
+		android:paddingTop="16dp"
+		android:text="완료된 사항 보기"
+		android:textColor="@color/base_text_view_color"
+		android:textSize="14dp"/>
+
+	<ImageView
+		android:id="@+id/imageView_completedTasks"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignBottom="@+id/textView_completedTasks"
+		android:layout_alignRight="@+id/textView_completedTasks"
+		android:layout_alignTop="@+id/textView_completedTasks"
+		android:layout_marginRight="16dp"
+		android:src="@drawable/ic_done"
+		android:visibility="gone"/>
+
+</RelativeLayout>

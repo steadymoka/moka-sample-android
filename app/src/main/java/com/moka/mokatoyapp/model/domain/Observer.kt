@@ -4,7 +4,7 @@ import rx.Observable
 import rx.Subscription
 import rx.subjects.PublishSubject
 
-class Observe<T : BaseDomain> {
+class Observer<T : BaseDomain> {
 
     private var subject: PublishSubject<Data<T>> = PublishSubject.create<Data<T>>()
 
@@ -47,10 +47,8 @@ class Observe<T : BaseDomain> {
         return subscription
     }
 
-    fun setOnChangeObservable(callback: (observable: Observable<Data<T>>) -> Unit) {
-        callback(subject
-                .onBackpressureBuffer()
-                .retry(1))
+    fun setOnChangeObservable(): Observable<Data<T>> {
+        return subject
     }
 
     data class Data<out T : BaseDomain>(val data: T) {

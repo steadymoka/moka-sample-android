@@ -24,4 +24,17 @@ object RealmHelper {
     val instance: Realm
         get() = Realm.getDefaultInstance()
 
+    fun onInstance(work: (realm: Realm) -> Unit) {
+        val realm = instance
+        work(realm)
+    }
+
+    fun onTransation(work: (realm: Realm) -> Unit) {
+        val realm = instance
+        realm.beginTransaction()
+        work(realm)
+        realm.commitTransaction()
+        realm.close()
+    }
+
 }
