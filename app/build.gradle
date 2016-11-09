@@ -5,11 +5,11 @@ apply plugin: 'realm-android'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.3"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
     defaultConfig {
         applicationId "com.moka.mokatoyapp"
-        minSdkVersion 21
+        minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion 24
         versionCode 1
         versionName "0.0.1"
@@ -36,37 +36,37 @@ buildscript {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile "com.android.support:appcompat-v7:$rootProject.ext.android_support_version"
-    compile "com.android.support:recyclerview-v7:$rootProject.ext.android_support_version"
-    compile "com.android.support:design:$rootProject.ext.android_support_version"
-    compile "com.nineoldandroids:library:2.4.0"
+    compile rootProject.ext.android_support
+    compile rootProject.ext.supoort_recyclerview
+    compile rootProject.ext.support_design
+    compile rootProject.ext.nineoldandroids
 
     /* Kotlin */
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$rootProject.ext.kotlin_version"
+    compile rootProject.ext.kotlin
 
     /* rx Android / java */
-    compile "io.reactivex:rxandroid:$rootProject.ext.rx_android"
-    compile "io.reactivex:rxjava:$rootProject.ext.rx_java"
-    compile "com.jakewharton.rxbinding:rxbinding-kotlin:$rootProject.ext.rx_binding"
+    compile rootProject.ext.rxandroid
+    compile rootProject.ext.rxjava
+    compile rootProject.ext.rxbinding
 
     /* dagger */
-    compile "com.google.dagger:dagger:$rootProject.ext.dagger_version"
+    compile rootProject.ext.dagger
     kapt "com.google.dagger:dagger-compiler:$rootProject.ext.dagger_version"
     provided 'javax.annotation:jsr250-api:1.0'
 
     /* Runtime Permission */
-    compile "com.github.hotchemi:permissionsdispatcher:$rootProject.ext.runtime_permission"
+    compile rootProject.ext.permissionsdispatcher
     kapt "com.github.hotchemi:permissionsdispatcher-processor:$rootProject.ext.runtime_permission"
 
     /* Image Loader */
-    compile "com.github.bumptech.glide:glide:$rootProject.ext.glide_version"
+    compile rootProject.ext.glide
 
     /* Server API Communication */
-    compile "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofit_version"
-    compile "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofit_version"
-    compile "com.squareup.retrofit2:adapter-rxjava:$rootProject.ext.retrofit_version"
-    compile "com.squareup.okhttp3:okhttp:$rootProject.ext.okhttp_version"
-    compile 'com.squareup.okhttp3:logging-interceptor:3.2.0'
+    compile rootProject.ext.retrofit
+    compile rootProject.ext.converter_gson
+    compile rootProject.ext.adapter_rxjava
+    compile rootProject.ext.okhttp
+    compile rootProject.ext.logging_interceptor
 
     /* test */
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
