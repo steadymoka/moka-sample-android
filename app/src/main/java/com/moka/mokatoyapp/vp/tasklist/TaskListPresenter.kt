@@ -4,6 +4,8 @@ import com.moka.framework.base.BasePresenter
 import com.moka.framework.extenstion.put
 import com.moka.framework.widget.adapter.IAdapterModel
 import com.moka.mokatoyapp.model.domain.Task
+import com.moka.mokatoyapp.model.repository.ITaskRepository
+import com.moka.mokatoyapp.model.repository.TaskRepository
 import com.moka.mokatoyapp.vp.tasklist.TaskListAdapter.TaskItemData
 import com.moka.mokatoyapp.vp.tasklist.TaskListFragment.Companion.ALL_TASKS
 import rx.android.schedulers.AndroidSchedulers
@@ -12,10 +14,11 @@ import javax.inject.Inject
 
 
 class TaskListPresenter
-@Inject constructor(var adapterModel: IAdapterModel) : BasePresenter<TaskListView>() {
+@Inject constructor(var adapterModel: IAdapterModel,
+                    var taskRepository: ITaskRepository) : BasePresenter<TaskListView>() {
 
     fun initModelObserver() {
-        val observable = Task.ob.setOnChangeObservable()
+        val observable = TaskRepository.ob.setOnChangeObservable()
 
         observable
                 .filter { isAttached }
@@ -44,7 +47,7 @@ class TaskListPresenter
 
     fun loadTask(filterStatus: Int) {
         adapterModel.clear()
-        Task.getTasks(filterStatus)
+        taskRepository.getTasks(filterStatus)
                 .observeOn(Schedulers.io())
                 .filter { isAttached }
                 .map { task -> adapterModel.getItemList().add(TaskItemData(task)) }
@@ -59,14 +62,14 @@ class TaskListPresenter
     }
 
     fun completeTask(task: Task) {
-        Task.update(task, { task ->
+        taskRepository.update(task, { task ->
             task.completed = true
         })
         view!!.showTaskMarkedComplete()
     }
 
     fun activeTask(task: Task) {
-        Task.update(task, { task ->
+        taskRepository.update(task, { task ->
             task.completed = false
         })
         view!!.showTaskMarkedActive()

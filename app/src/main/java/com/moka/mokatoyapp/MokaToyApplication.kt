@@ -6,6 +6,7 @@ import com.moka.mokatoyapp._di.component.ApplicationComponent
 import com.moka.mokatoyapp._di.component.DaggerApplicationComponent
 import com.moka.mokatoyapp._di.module.ApiModule
 import com.moka.mokatoyapp._di.module.ApplicationModule
+import com.moka.mokatoyapp._di.module.RepositoryModule
 import com.moka.mokatoyapp.model.RealmHelper
 
 class MokaToyApplication : Application() {
@@ -29,6 +30,7 @@ class MokaToyApplication : Application() {
         return DaggerApplicationComponent.builder()
                 .applicationModule(ApplicationModule(this))
                 .apiModule(ApiModule(this))
+                .repositoryModule(RepositoryModule())
                 .build()
     }
 

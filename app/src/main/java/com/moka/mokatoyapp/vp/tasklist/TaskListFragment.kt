@@ -58,7 +58,7 @@ class TaskListFragment : BaseMVPFragment(), TaskListView {
 
         DaggerFragmentComponent.builder()
                 .applicationComponent((activity.application as MokaToyApplication).applicationComponent)
-                .fragmentModule(FragmentModule(activity, adapter))
+                .fragmentModule(FragmentModule(adapter))
                 .build().inject(this)
 
         return rootView

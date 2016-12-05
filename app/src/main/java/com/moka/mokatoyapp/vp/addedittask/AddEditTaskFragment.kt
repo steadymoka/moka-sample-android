@@ -38,7 +38,7 @@ class AddEditTaskFragment : BaseMVPFragment(), AddEditTaskView {
 
         DaggerFragmentComponent.builder()
                 .applicationComponent((activity.application as MokaToyApplication).applicationComponent)
-                .fragmentModule(FragmentModule(activity))
+                .fragmentModule(FragmentModule())
                 .build().inject(this)
 
         return rootView
