@@ -1,10 +1,13 @@
-## Moka ToyAndroidApp - MVP + Dagger2 + Kotlin
+## Moka SampleAndroidApp - MVP + Dagger2 + Realm + Reactive (in Kotlin)
 
 ### Summary
-This is my sample 'TODO App' to demonstrate MVP pattern with Dagger2, Kotlin, Rxjava,
-and reactive architecture
+This is my sample 'TODO App' to demonstrate MVP pattern with Dagger2, Kotlin, Rxjava, Realm
+and reactive architecture. for learning perposes.
 
 The contents of the screen and the app has made a similar reference to Google's sample project. [https://github.com/googlesamples/android-architecture](https://github.com/googlesamples/android-architecture)
+
+Please let me know if I am doing something badly or if there is a way to improve something.
+Thanks.
 
 ### Tag & branch
 `branch: sticker-image` is sample app with [https://github.com/CyberAgent/android-gpuimage](https://github.com/CyberAgent/android-gpuimage)
