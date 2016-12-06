@@ -56,15 +56,15 @@ constructor(private val context: Context) : HeaderFooterRecyclerViewAdapter(), I
 
     override fun onBindHeaderItemViewHolder(headerViewHolder: RecyclerView.ViewHolder, position: Int) {
         if (headerViewHolder is RecyclerItemView<*> && null != headerData) {
-            val itemView = headerViewHolder
-            itemView.data = headerData
+            val itemView = headerViewHolder as RecyclerItemView<DATA>
+            itemView.data = headerData!!
         }
     }
 
     override fun onBindFooterItemViewHolder(footerViewHolder: RecyclerView.ViewHolder, position: Int) {
         if (footerViewHolder is RecyclerItemView<*> && null != footerData) {
-            val itemView = footerViewHolder
-            itemView.data = footerData
+            val itemView = footerViewHolder as RecyclerItemView<DATA>
+            itemView.data = footerData!!
         }
     }
 
@@ -81,7 +81,7 @@ constructor(private val context: Context) : HeaderFooterRecyclerViewAdapter(), I
             itemView.afterData = null
 
         itemView.index = position
-        itemView.data = items!![position]
+        itemView.setItemData(items!![position])
     }
 
     /**

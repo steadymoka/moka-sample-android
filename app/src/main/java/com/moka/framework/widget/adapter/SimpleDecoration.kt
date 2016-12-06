@@ -9,19 +9,21 @@ import com.moka.framework.util.ScreenUtil
 import com.moka.mokatoyapp.R
 
 
-class SimpleDecoration(var context: Context) : RecyclerView.ItemDecoration() {
+class SimpleDecoration(var context: Context, var mMargin: Int? = null) : RecyclerView.ItemDecoration() {
 
     private val mDivider: Drawable
-    private val mMargin: Int
 
     init {
         mDivider = ContextCompat.getDrawable(context, R.drawable.line_divider)
-        mMargin = ScreenUtil.dipToPixel(context, 24.0).toInt()
+        if (mMargin == null)
+            mMargin = ScreenUtil.dipToPixel(context, 24.0).toInt()
+        else
+            mMargin = ScreenUtil.dipToPixel(context, mMargin!!.toDouble()).toInt()
     }
 
     override fun onDrawOver(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
-        val left = parent.paddingLeft + mMargin
-        val right = parent.width - parent.paddingRight - mMargin
+        val left = parent.paddingLeft + mMargin!!
+        val right = parent.width - parent.paddingRight - mMargin!!
 
         val childCount = parent.childCount
         for (i in 0..childCount - 1) {

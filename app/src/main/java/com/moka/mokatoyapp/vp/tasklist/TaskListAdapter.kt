@@ -48,10 +48,7 @@ constructor(private val context: Context) : BaseAdapter<TaskItemData, TaskItemVi
             itemView.checkBox_complete.setOnClickListener { if (null != onItemCheckListener) onItemCheckListener!!(data) }
         }
 
-        override fun refreshView(data: TaskItemData?) {
-            if (null == data)
-                return
-
+        override fun refreshView(data: TaskItemData) {
             itemView.run {
                 textView_title.text = data.task.title
                 checkBox_complete.isChecked = data.task.completed
