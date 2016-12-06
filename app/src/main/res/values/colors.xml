@@ -23,6 +23,8 @@
 	<color name="gray">#FFD2D2D2</color>
 	<color name="red">#FFEF1424</color>
 
+	<color name="divider_color">#FFE6E6E6</color>
+
 	<!-- TextView -->
 	<color name="base_black_color">#414141</color>
 	<color name="base_text_view_color">#FF616161</color>

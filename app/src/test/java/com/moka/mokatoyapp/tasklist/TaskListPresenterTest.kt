@@ -2,6 +2,7 @@ package com.moka.mokatoyapp.tasklist
 
 
 import com.moka.framework.widget.adapter.IAdapterModel
+import com.moka.mokatoyapp.model.repository.ITaskRepository
 import com.moka.mokatoyapp.vp.tasklist.TaskListPresenter
 import com.moka.mokatoyapp.vp.tasklist.TaskListView
 import org.junit.Before
@@ -16,6 +17,9 @@ class TaskListPresenterTest {
     @Mock
     private lateinit var adapterModel: IAdapterModel
 
+    @Mock
+    private lateinit var taskRepository: ITaskRepository
+
     private lateinit var presenter: TaskListPresenter
 
     @Before
@@ -25,7 +29,7 @@ class TaskListPresenterTest {
         MockitoAnnotations.initMocks(this)
 
         // Get a reference to the class under test
-        presenter = TaskListPresenter(adapterModel)
+        presenter = TaskListPresenter(adapterModel, taskRepository)
         presenter.attachView(taskListView)
     }
 

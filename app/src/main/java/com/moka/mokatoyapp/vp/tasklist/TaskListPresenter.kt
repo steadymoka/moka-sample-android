@@ -47,7 +47,8 @@ class TaskListPresenter
 
     fun loadTask(filterStatus: Int) {
         adapterModel.clear()
-        taskRepository.getTasks(filterStatus)
+        taskRepository
+                .getTasks(filterStatus)
                 .observeOn(Schedulers.io())
                 .filter { isAttached }
                 .map { task -> adapterModel.getItemList().add(TaskItemData(task)) }

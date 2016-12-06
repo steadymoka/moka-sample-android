@@ -11,6 +11,7 @@ import com.moka.framework.base.BasePresenter
 import com.moka.framework.extenstion.init
 import com.moka.framework.extenstion.startOnAnim
 import com.moka.framework.widget.adapter.IAdapterView
+import com.moka.framework.widget.adapter.SimpleDecoration
 import com.moka.framework.widget.toolbar.ToolbarLayout
 import com.moka.mokatoyapp.MokaToyApplication
 import com.moka.mokatoyapp.R
@@ -73,6 +74,7 @@ class TaskListFragment : BaseMVPFragment(), TaskListView {
 
     private fun initViewAndEvent() {
         recyclerView.init(activity, adapterView as TaskListAdapter)
+        recyclerView.addItemDecoration(SimpleDecoration(activity))
         floatingActionButton_add.setOnClickListener { onClickFloatingActionButton() }
     }
 

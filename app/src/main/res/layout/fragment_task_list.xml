@@ -25,6 +25,11 @@
 			android:textSize="26sp"
 			android:textStyle="bold"/>
 
+		<View style="@style/HorizontalDivider"
+			  android:layout_below="@+id/textView_filteringLabel"
+			  android:layout_marginLeft="8dp"
+			  android:layout_marginRight="8dp"/>
+
 		<android.support.v7.widget.RecyclerView
 			android:id="@+id/recyclerView"
 			android:layout_width="match_parent"

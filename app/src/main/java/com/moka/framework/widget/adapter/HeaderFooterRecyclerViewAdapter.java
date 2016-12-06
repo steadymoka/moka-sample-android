@@ -5,6 +5,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
 
+/**
+ * https://gist.github.com/mheras/0908873267def75dc746
+ */
 public abstract class HeaderFooterRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
 	private static final int VIEW_TYPE_MAX_COUNT = 1000;
