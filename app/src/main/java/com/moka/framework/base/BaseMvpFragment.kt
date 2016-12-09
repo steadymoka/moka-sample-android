@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 
 
-abstract class BaseMVPFragment : BaseFragment(), BaseMvpView {
+abstract class BaseMvpFragment : BaseFragment(), BaseMvpView {
 
     private var presenter: BasePresenter<BaseMvpView>? = null
 

@@ -47,16 +47,17 @@ dependencies {
     /* rx Android / java */
     compile rootProject.ext.rxandroid
     compile rootProject.ext.rxjava
+//    compile rootProject.ext.rxjava_2
     compile rootProject.ext.rxbinding
 
     /* dagger */
     compile rootProject.ext.dagger
-    kapt "com.google.dagger:dagger-compiler:$rootProject.ext.dagger_version"
-    provided 'javax.annotation:jsr250-api:1.0'
+    kapt rootProject.ext.daager_kapt
+    provided rootProject.ext.dagger_provided
 
     /* Runtime Permission */
     compile rootProject.ext.permissionsdispatcher
-    kapt "com.github.hotchemi:permissionsdispatcher-processor:$rootProject.ext.runtime_permission"
+    kapt rootProject.ext.permission_kapt
 
     /* Image Loader */
     compile rootProject.ext.glide

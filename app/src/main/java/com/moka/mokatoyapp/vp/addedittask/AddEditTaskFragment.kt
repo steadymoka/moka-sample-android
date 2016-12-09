@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.moka.framework.base.BaseMVPFragment
+import com.moka.framework.base.BaseMvpFragment
 import com.moka.framework.base.BasePresenter
 import com.moka.mokatoyapp.MokaToyApplication
 import com.moka.mokatoyapp.R
@@ -13,7 +13,7 @@ import com.moka.mokatoyapp._di.module.FragmentModule
 import kotlinx.android.synthetic.main.fragment_task_add_edit.*
 import javax.inject.Inject
 
-class AddEditTaskFragment : BaseMVPFragment(), AddEditTaskView {
+class AddEditTaskFragment : BaseMvpFragment(), AddEditTaskView {
 
     companion object {
         val KEY_TASK_ID = "AddEditTaskFragment.KEY_TASK_ID"

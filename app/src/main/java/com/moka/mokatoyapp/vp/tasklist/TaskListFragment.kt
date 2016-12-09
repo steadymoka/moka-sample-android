@@ -6,7 +6,7 @@ import android.support.design.widget.Snackbar
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.moka.framework.base.BaseMVPFragment
+import com.moka.framework.base.BaseMvpFragment
 import com.moka.framework.base.BasePresenter
 import com.moka.framework.extenstion.init
 import com.moka.framework.extenstion.startOnAnim
@@ -22,7 +22,7 @@ import com.moka.mokatoyapp.vp.addedittask.AddEditTaskFragment
 import kotlinx.android.synthetic.main.fragment_task_list.*
 import javax.inject.Inject
 
-class TaskListFragment : BaseMVPFragment(), TaskListView {
+class TaskListFragment : BaseMvpFragment(), TaskListView {
 
     private var filterState: Int = 0
 

@@ -29,7 +29,7 @@
 			android:layout_height="?attr/actionBarSize"
 			android:background="?android:attr/selectableItemBackground"
 			android:padding="16dp"
-			android:src="@mipmap/ic_back_white"/>
+			android:src="@drawable/ic_left_arrow_vector"/>
 
 		<TextView
 			android:id="@+id/textView_toolbarTitle"
@@ -39,7 +39,8 @@
 			android:gravity="center"
 			android:text="Moka Toy Todo App"
 			android:textColor="@color/white"
-			android:textSize="14dp"/>
+			android:textSize="14dp"
+			android:textStyle="bold"/>
 
 		<ImageView
 			android:id="@+id/imageView_menu"
@@ -57,7 +58,8 @@
 			android:background="?android:attr/selectableItemBackground"
 			android:gravity="center"
 			android:textColor="@color/white"
-			android:textSize="13dp"/>
+			android:textSize="13dp"
+			android:textStyle="bold"/>
 
 	</RelativeLayout>
 

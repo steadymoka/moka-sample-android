@@ -13,8 +13,6 @@ interface BaseMvpView {
 
     fun dismissLoadingDialog()
 
-    fun isAdded(): Boolean
-
     fun getCompositeSubscription(): CompositeSubscription
 
 }
