@@ -1,15 +1,13 @@
 package com.moka.framework.widget.adapter
 
 
-import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import java.util.*
 
 @Suppress("UNCHECKED_CAST")
-abstract class BaseAdapter<DATA : ItemData, in VIEW : RecyclerItemView<DATA>>
-constructor(private val context: Context) : HeaderFooterRecyclerViewAdapter(), IAdapterModel, IAdapterView {
+abstract class BaseAdapter<DATA : ItemData, in VIEW : RecyclerItemView<DATA>> : HeaderFooterRecyclerViewAdapter(), IAdapterModel, IAdapterView {
 
     var headerData: DATA? = null
     var footerData: DATA? = null

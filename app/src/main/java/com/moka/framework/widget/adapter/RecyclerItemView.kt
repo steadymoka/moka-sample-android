@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 
 
-abstract class RecyclerItemView<DATA : ItemData>(val context: Context, val viewHolder: View) : RecyclerView.ViewHolder(viewHolder) {
+abstract class RecyclerItemView<DATA : ItemData>(val viewHolder: View) : RecyclerView.ViewHolder(viewHolder) {
     var index: Int = 0
 
     lateinit var data: DATA

@@ -1,7 +1,7 @@
 ext {
 
     // Build SDK versions
-    buildToolsVersion = "24.0.3"
+    buildToolsVersion = "25.0.0"
     minSdkVersion = 21
     compileSdkVersion = 24
 

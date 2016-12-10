@@ -15,7 +15,7 @@ import com.moka.mokatoyapp.vp.tasklist.TaskListAdapter.TaskItemView
 import kotlinx.android.synthetic.main.task_item_view.view.*
 
 class TaskListAdapter
-constructor(private val context: Context) : BaseAdapter<TaskItemData, TaskItemView>(context) {
+constructor(private val context: Context) : BaseAdapter<TaskItemData, TaskItemView>() {
 
     var onItemClickListener: ((data: TaskItemData) -> Unit)? = null
     var onItemCheckListener: ((data: TaskItemData) -> Unit)? = null
@@ -38,7 +38,7 @@ constructor(private val context: Context) : BaseAdapter<TaskItemData, TaskItemVi
      */
 
     class TaskItemView(context: Context, parent: ViewGroup) :
-            RecyclerItemView<TaskItemData>(context, LayoutInflater.from(context).inflate(R.layout.task_item_view, parent, false)) {
+            RecyclerItemView<TaskItemData>(LayoutInflater.from(context).inflate(R.layout.task_item_view, parent, false)) {
 
         var onItemClickListener: ((data: TaskItemData) -> Unit)? = null
         var onItemCheckListener: ((data: TaskItemData) -> Unit)? = null
