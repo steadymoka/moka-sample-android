@@ -35,60 +35,15 @@ class ToolbarLayout : FrameLayout {
 
     private fun initView() {
         rootViewOfToolbarLayout = LayoutInflater.from(context).inflate(R.layout.toolbar_moka, null)
-        addView(rootViewOfToolbarLayout!!)
+        super.addView(rootViewOfToolbarLayout)
 
-        view_shadow.bringToFront()
+//        view_shadow.bringToFront()
         imageView_home.setOnClickListener { if (null != homeButtonListener) homeButtonListener!!() }
         imageView_menu.setOnClickListener { if (null != menuButtonListener) menuButtonListener!!() }
     }
 
-    override fun addView(child: View) {
-        if (canAddChildView(child))
-            addViewToContentView(child)
-    }
-
-    private fun canAddChildView(child: View): Boolean {
-        if (rootViewOfToolbarLayout === child) {
-
-            super.addView(child, -1, generateMatchParentLayoutParams())
-            return false
-        }
-        else if (null != toolbar_frameLayout_content && (toolbar_frameLayout_content as FrameLayout).childCount > 0) {
-
-            throw IllegalStateException("ToolbarLayout can host only one direct child")
-        }
-
-        return true
-    }
-
     private fun generateMatchParentLayoutParams(): FrameLayout.LayoutParams {
         return FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-    }
-
-    private fun addViewToContentView(child: View) {
-        val layoutParams = generateMatchParentLayoutParams()
-        child.layoutParams = layoutParams
-        toolbar_frameLayout_content.addView(child)
-    }
-
-    override fun addView(child: View, index: Int) {
-        if (canAddChildView(child))
-            addViewToContentView(child)
-    }
-
-    override fun addView(child: View, width: Int, height: Int) {
-        if (canAddChildView(child))
-            addViewToContentView(child)
-    }
-
-    override fun addView(child: View, params: ViewGroup.LayoutParams) {
-        if (canAddChildView(child))
-            addViewToContentView(child)
-    }
-
-    override fun addView(child: View, index: Int, params: ViewGroup.LayoutParams) {
-        if (canAddChildView(child))
-            addViewToContentView(child)
     }
 
     /**
@@ -170,7 +125,7 @@ class ToolbarLayout : FrameLayout {
 
     override fun setAlpha(alpha: Float) {
         ViewHelper.setAlpha(frameLayout_toolbarBackground, alpha)
-        ViewHelper.setAlpha(view_shadow, alpha)
+//        ViewHelper.setAlpha(view_shadow, alpha)
         textView_toolbarTitle?.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 15f)
         if (alpha == 0f)
             setExpand(true)
@@ -182,18 +137,18 @@ class ToolbarLayout : FrameLayout {
         val context = context
 
         if (null != context) {
-            val layoutParams = toolbar_frameLayout_content?.layoutParams as RelativeLayout.LayoutParams
+//            val layoutParams = toolbar_frameLayout_content?.layoutParams as RelativeLayout.LayoutParams
 
-            if (expand) {
-                layoutParams.topMargin = 0
-            }
-            else {
-                val array = context.theme.obtainStyledAttributes(intArrayOf(R.attr.actionBarSize))
-                layoutParams.topMargin = array.getDimensionPixelSize(0, 0)
-                array.recycle()
-            }
-
-            toolbar_frameLayout_content?.layoutParams = layoutParams
+//            if (expand) {
+//                layoutParams.topMargin = 0
+//            }
+//            else {
+//                val array = context.theme.obtainStyledAttributes(intArrayOf(R.attr.actionBarSize))
+//                layoutParams.topMargin = array.getDimensionPixelSize(0, 0)
+//                array.recycle()
+//            }
+//
+//            toolbar_frameLayout_content?.layoutParams = layoutParams
         }
     }
 

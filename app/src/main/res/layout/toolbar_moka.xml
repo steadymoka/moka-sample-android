@@ -3,19 +3,13 @@
 	android:id="@+id/relativeLayout_container"
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent">
-
-	<FrameLayout
-		android:id="@+id/toolbar_frameLayout_content"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:layout_marginTop="?attr/actionBarSize"/>
+	android:layout_height="wrap_content"
+	android:background="@color/base_color_prime">
 
 	<FrameLayout
 		android:id="@+id/frameLayout_toolbarBackground"
 		android:layout_width="match_parent"
-		android:layout_height="?attr/actionBarSize"
-		android:background="@color/base_color_prime"/>
+		android:layout_height="?attr/actionBarSize"/>
 
 	<RelativeLayout
 		android:id="@+id/relativeLayout_toolbar"
@@ -63,8 +57,8 @@
 
 	</RelativeLayout>
 
-	<View
-		android:id="@+id/view_shadow"
-		style="@style/toolbarShadowStyle"/>
+	<!--<View-->
+	<!--android:id="@+id/view_shadow"-->
+	<!--style="@style/toolbarShadowStyle"/>-->
 
 </RelativeLayout>
