@@ -16,8 +16,6 @@ import kotlinx.android.synthetic.main.toolbar_moka.view.*
 
 class ToolbarLayout : FrameLayout {
 
-    private var rootViewOfToolbarLayout: View? = null
-
     private var homeButtonListener: (() -> Unit?)? = null
     private var menuButtonListener: (() -> Unit?)? = null
 
@@ -34,16 +32,10 @@ class ToolbarLayout : FrameLayout {
     }
 
     private fun initView() {
-        rootViewOfToolbarLayout = LayoutInflater.from(context).inflate(R.layout.toolbar_moka, null)
-        super.addView(rootViewOfToolbarLayout)
+        super.addView(LayoutInflater.from(context).inflate(R.layout.toolbar_moka, null))
 
-//        view_shadow.bringToFront()
         imageView_home.setOnClickListener { if (null != homeButtonListener) homeButtonListener!!() }
         imageView_menu.setOnClickListener { if (null != menuButtonListener) menuButtonListener!!() }
-    }
-
-    private fun generateMatchParentLayoutParams(): FrameLayout.LayoutParams {
-        return FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
     }
 
     /**
@@ -125,12 +117,14 @@ class ToolbarLayout : FrameLayout {
 
     override fun setAlpha(alpha: Float) {
         ViewHelper.setAlpha(frameLayout_toolbarBackground, alpha)
-//        ViewHelper.setAlpha(view_shadow, alpha)
         textView_toolbarTitle?.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 15f)
         if (alpha == 0f)
             setExpand(true)
         else
             setExpand(false)
+    }
+
+    fun setShadow(isShadow: Boolean) {
     }
 
     fun setExpand(expand: Boolean) {
