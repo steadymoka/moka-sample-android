@@ -6,9 +6,7 @@ import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.FrameLayout
-import android.widget.RelativeLayout
 import com.moka.mokatoyapp.R
 import com.nineoldandroids.view.ViewHelper
 import kotlinx.android.synthetic.main.toolbar_moka.view.*

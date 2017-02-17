@@ -6,8 +6,9 @@ ext {
     compileSdkVersion = 24
 
     // Version
-    android_support_version = '25.0.0'
-    kotlin_version          = '1.0.4'
+    android_support_version = '25.0.1'
+    kotlin_version          = '1.1.0-beta-38'
+    anko_version            = '0.9'
     retrofit_version        = '2.1.0'
     fresco_version          = '0.10.0'
     okhttp_version          = '3.2.0'
@@ -31,6 +32,11 @@ ext {
     nineoldandroids         = "com.nineoldandroids:library:2.4.0"
 
     kotlin                  = "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    anko                    = "org.jetbrains.anko:anko-sdk15:$anko_version"
+    anko_appcompat          = "org.jetbrains.anko:anko-appcompat-v7:$anko_version"
+    anko_design             = "org.jetbrains.anko:anko-design:$anko_version"
+    anko_recyclerview       = "org.jetbrains.anko:anko-recyclerview-v7:$anko_version"
+    anko_cardview           = "org.jetbrains.anko:anko-cardview-v7:$anko_version"
 
     /* rx Android / java */
     rxandroid               = "io.reactivex:rxandroid:$rx_android"

@@ -25,6 +25,7 @@ android {
 
 buildscript {
     repositories {
+        maven { url "http://dl.bintray.com/kotlin/kotlin-eap-1.1" }
         mavenCentral()
     }
 
@@ -41,13 +42,17 @@ dependencies {
     compile rootProject.ext.support_design
     compile rootProject.ext.nineoldandroids
 
-    /* Kotlin */
+    /* Kotlin & Anko */
     compile rootProject.ext.kotlin
+    compile rootProject.ext.anko
+    compile rootProject.ext.anko_appcompat
+    compile rootProject.ext.anko_design
+    compile rootProject.ext.anko_recyclerview
+    compile rootProject.ext.anko_cardview
 
     /* rx Android / java */
     compile rootProject.ext.rxandroid
     compile rootProject.ext.rxjava
-//    compile rootProject.ext.rxjava_2
     compile rootProject.ext.rxbinding
 
     /* dagger */

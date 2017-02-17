@@ -4,7 +4,8 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="?android:attr/listPreferredItemHeight"
-	android:background="?attr/selectableItemBackground"
+	android:background="#FFF6F6F6"
+	android:foreground="?attr/selectableItemBackground"
 	android:paddingBottom="8dp"
 	android:paddingLeft="16dp"
 	android:paddingRight="16dp">
