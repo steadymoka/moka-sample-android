@@ -73,6 +73,7 @@ class TaskListFragment : BaseMvpFragment(), TaskListView {
     }
 
     private fun initViewAndEvent() {
+        recyclerView.setHasFixedSize(true)
         recyclerView.init(activity, adapterView as TaskListAdapter)
         recyclerView.addItemDecoration(SimpleDecoration(activity))
         floatingActionButton_add.setOnClickListener { onClickFloatingActionButton() }

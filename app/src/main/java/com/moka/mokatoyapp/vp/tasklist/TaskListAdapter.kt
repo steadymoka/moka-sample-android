@@ -53,9 +53,7 @@ constructor(private val context: Context) : BaseAdapter<TaskItemData, TaskItemVi
                 textView_title.text = data.task.title
                 checkBox_complete.isChecked = data.task.completed
             }
-
         }
-
     }
 
 }

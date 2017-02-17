@@ -26,7 +26,7 @@ class TaskListPresenter
                 .subscribe({ data ->
                     adapterModel.add(TaskItemData(data.data))
                     view!!.refreshAdapterList()
-                }, { e -> e.printStackTrace() }, {})
+                }, Throwable::printStackTrace, {})
                 .put(view!!.getCompositeSubscription())
 
         observable
@@ -34,7 +34,7 @@ class TaskListPresenter
                 .filter { it.isUpdated || it.isDeleted }
                 .subscribe({ data ->
                     view!!.reloadTaskList()
-                }, { e -> e.printStackTrace() }, {})
+                }, Throwable::printStackTrace, {})
                 .put(view!!.getCompositeSubscription())
     }
 
@@ -50,16 +50,15 @@ class TaskListPresenter
         taskRepository
                 .getTasks(filterStatus)
                 .observeOn(Schedulers.io())
-                .filter { isAttached }
                 .map { task -> adapterModel.getItemList().add(TaskItemData(task)) }
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnCompleted {
+                .filter { isAttached }
+                .subscribe({}, Throwable::printStackTrace, {
                     if (adapterModel.getItemList().size > 0)
                         view!!.refreshAdapterList()
                     else
                         view!!.showNoTasks()
-                }
-                .subscribe({ }, { e -> e.printStackTrace() }, { })
+                })
     }
 
     fun completeTask(task: Task) {

@@ -29,7 +29,7 @@ object RealmHelper {
         work(realm)
     }
 
-    fun onTransation(work: (realm: Realm) -> Unit) {
+    fun onTransaction(work: (realm: Realm) -> Unit) {
         val realm = instance
         realm.beginTransaction()
         work(realm)

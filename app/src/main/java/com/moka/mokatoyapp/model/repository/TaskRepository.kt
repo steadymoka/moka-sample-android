@@ -4,6 +4,7 @@ import com.moka.framework.util.DateUtil
 import com.moka.mokatoyapp.model.RealmHelper
 import com.moka.mokatoyapp.model.domain.Observer
 import com.moka.mokatoyapp.model.domain.Task
+import com.moka.mokatoyapp.model.domain.copy
 import com.moka.mokatoyapp.vp.tasklist.TaskListFragment
 import rx.Observable
 
@@ -15,7 +16,7 @@ class TaskRepository : ITaskRepository {
 
     override fun insert(insert: (Task) -> Unit) {
         var copyTask: Task? = null
-        RealmHelper.onTransation { realm ->
+        RealmHelper.onTransaction { realm ->
 
             val number = realm.where(Task::class.java).max("id")
             val taskId: Long
@@ -24,36 +25,36 @@ class TaskRepository : ITaskRepository {
             else
                 taskId = number.toLong() + 1
 
-            val task = realm.createObject(Task::class.java, taskId)
-            insert(task)
-            task.createdAt = DateUtil.timestampInSecond
-            task.updatedAt = DateUtil.timestampInSecond
+            val realmTask = realm.createObject(Task::class.java, taskId)
+            insert(realmTask)
+            realmTask.createdAt = DateUtil.timestampInSecond
+            realmTask.updatedAt = DateUtil.timestampInSecond
 
-            copyTask = realm.copyFromRealm(task)
+            copyTask = realmTask.copy()
         }
         ob.onInsert(copyTask!!)
     }
 
     override fun update(task: Task, update: (Task) -> Unit) {
         var copyTask: Task? = null
-        RealmHelper.onTransation { realm ->
+        RealmHelper.onTransaction { realm ->
 
             val realmTask = realm.copyToRealmOrUpdate(task)
             update(realmTask)
             realmTask.updatedAt = DateUtil.timestampInSecond
 
-            copyTask = realm.copyFromRealm(realmTask)
+            copyTask = realmTask.copy()
         }
         ob.onUpdate(copyTask!!)
     }
 
     override fun delete(id: Long) {
         var copyTask: Task? = null
-        RealmHelper.onTransation { realm ->
+        RealmHelper.onTransaction { realm ->
 
-            val task = realm.where(Task::class.java).equalTo("id", id).findFirst()
-            copyTask = realm.copyFromRealm(task)
-            task.deleteFromRealm()
+            val realmTask: Task = realm.where(Task::class.java).equalTo("id", id).findFirst()
+            copyTask = realmTask.copy()
+            realmTask.deleteFromRealm()
         }
         ob.onDelete(copyTask!!)
     }
@@ -67,6 +68,7 @@ class TaskRepository : ITaskRepository {
                     .findFirst()
                     .asObservable<Task>()
                     .filter { it.isLoaded }
+                    .map(Task::copy)
                     .doOnCompleted { realm.close() }
         }
         return observable!!
@@ -89,7 +91,7 @@ class TaskRepository : ITaskRepository {
                     .filter { it.isLoaded }
                     .first()
                     .flatMap {
-                        Observable.from(realm.copyFromRealm(it))
+                        Observable.from(it.copy())
                     }
                     .doOnCompleted { realm.close() }
         }
