@@ -23,18 +23,6 @@ android {
     }
 }
 
-buildscript {
-    repositories {
-        maven { url "http://dl.bintray.com/kotlin/kotlin-eap-1.1" }
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$rootProject.ext.kotlin_version"
-        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$rootProject.ext.kotlin_version"
-    }
-}
-
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile rootProject.ext.android_support
@@ -43,7 +31,7 @@ dependencies {
     compile rootProject.ext.nineoldandroids
 
     /* Kotlin & Anko */
-    compile rootProject.ext.kotlin
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     compile rootProject.ext.anko
     compile rootProject.ext.anko_appcompat
     compile rootProject.ext.anko_design

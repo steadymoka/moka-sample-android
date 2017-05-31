@@ -68,6 +68,7 @@ class TaskRepository : ITaskRepository {
                     .findFirst()
                     .asObservable<Task>()
                     .filter { it.isLoaded }
+                    .first()
                     .map(Task::copy)
                     .doOnCompleted { realm.close() }
         }

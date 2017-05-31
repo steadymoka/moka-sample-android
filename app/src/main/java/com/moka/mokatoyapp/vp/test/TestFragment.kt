@@ -1,4 +1,4 @@
-package com.moka.mokatoyapp
+package com.moka.mokatoyapp.vp.test
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import com.moka.framework.base.BaseFragment
 import com.moka.framework.extenstion.init
 import com.moka.framework.widget.adapter.SimpleDecoration
+import com.moka.mokatoyapp.R
 import com.moka.mokatoyapp.model.repository.TaskRepository
 import com.moka.mokatoyapp.vp.tasklist.TaskListAdapter
 import kotlinx.android.synthetic.main.fragment_test.*
