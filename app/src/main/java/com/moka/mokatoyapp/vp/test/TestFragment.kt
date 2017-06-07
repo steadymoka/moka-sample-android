@@ -11,6 +11,7 @@ import com.moka.mokatoyapp.R
 import com.moka.mokatoyapp.model.repository.TaskRepository
 import com.moka.mokatoyapp.vp.tasklist.TaskListAdapter
 import kotlinx.android.synthetic.main.fragment_test.*
+import org.jetbrains.anko.support.v4.act
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 
@@ -23,11 +24,11 @@ class TestFragment : BaseFragment() {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = TaskListAdapter(activity)
+        val adapter = TaskListAdapter(act)
         adapter.setHasStableIds(true)
 
-        recyclerView.init(activity, adapter)
-        recyclerView.addItemDecoration(SimpleDecoration(activity))
+        recyclerView.init(act, adapter)
+        recyclerView.addItemDecoration(SimpleDecoration(act))
 
         TaskRepository()
                 .getTasks(10000)

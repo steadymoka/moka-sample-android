@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import com.moka.framework.extenstion.hideSoftKey
 import com.moka.framework.util.MLog
 import com.moka.mokatoyapp.R
+import org.jetbrains.anko.support.v4.act
 import rx.subscriptions.CompositeSubscription
 
 abstract class BaseFragment : Fragment() {
@@ -71,7 +72,7 @@ abstract class BaseFragment : Fragment() {
 
     fun dismissSoftKeyOnTouch(rootView: View) {
         rootView.setOnTouchListener { view, motionEvent ->
-            hideSoftKey(activity)
+            hideSoftKey(act)
             false
         }
     }
@@ -81,9 +82,9 @@ abstract class BaseFragment : Fragment() {
      */
 
     private fun getLoadingDialog(): AlertDialog {
-        if (null == loadingDialog && null != activity) {
-            val builder = AlertDialog.Builder(activity)
-            val rootView = activity.layoutInflater.inflate(R.layout.dialog_loading, null)
+        if (null == loadingDialog) {
+            val builder = AlertDialog.Builder(act)
+            val rootView = act.layoutInflater.inflate(R.layout.dialog_loading, null)
             builder.setView(rootView)
             builder.setCancelable(false)
 

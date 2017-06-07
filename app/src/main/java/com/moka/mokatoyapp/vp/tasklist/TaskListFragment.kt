@@ -20,6 +20,7 @@ import com.moka.mokatoyapp._di.module.FragmentModule
 import com.moka.mokatoyapp.vp.addedittask.AddEditTaskActivity
 import com.moka.mokatoyapp.vp.addedittask.AddEditTaskFragment
 import kotlinx.android.synthetic.main.fragment_task_list.*
+import org.jetbrains.anko.support.v4.act
 import javax.inject.Inject
 
 class TaskListFragment : BaseMvpFragment(), TaskListView {
@@ -52,13 +53,13 @@ class TaskListFragment : BaseMvpFragment(), TaskListView {
         super.onCreateView(inflater, container, savedInstanceState)
         val rootView = inflater!!.inflate(R.layout.fragment_task_list, container, false)
 
-        val adapter = TaskListAdapter(activity)
+        val adapter = TaskListAdapter(act)
         adapter.setHasStableIds(true)
         adapter.onItemCheckListener = { onCheckListItem(it) }
         adapter.onItemClickListener = { onClickListItem(it) }
 
         DaggerFragmentComponent.builder()
-                .applicationComponent((activity.application as MokaToyApplication).applicationComponent)
+                .applicationComponent((act.application as MokaToyApplication).applicationComponent)
                 .fragmentModule(FragmentModule(adapter))
                 .build().inject(this)
 
@@ -74,8 +75,8 @@ class TaskListFragment : BaseMvpFragment(), TaskListView {
 
     private fun initViewAndEvent() {
         recyclerView.setHasFixedSize(true)
-        recyclerView.init(activity, adapterView as TaskListAdapter)
-        recyclerView.addItemDecoration(SimpleDecoration(activity))
+        recyclerView.init(act, adapterView as TaskListAdapter)
+        recyclerView.addItemDecoration(SimpleDecoration(act))
         floatingActionButton_add.setOnClickListener { onClickFloatingActionButton() }
     }
 
@@ -126,7 +127,7 @@ class TaskListFragment : BaseMvpFragment(), TaskListView {
     /* View Event */
 
     private fun onClickFloatingActionButton() {
-        activity.startOnAnim(AddEditTaskActivity::class.java)
+        act.startOnAnim(AddEditTaskActivity::class.java)
     }
 
     private fun onCheckListItem(itemData: TaskListAdapter.TaskItemData) {
@@ -137,9 +138,9 @@ class TaskListFragment : BaseMvpFragment(), TaskListView {
     }
 
     private fun onClickListItem(itemData: TaskListAdapter.TaskItemData) {
-        val intent = Intent(activity, AddEditTaskActivity::class.java)
+        val intent = Intent(act, AddEditTaskActivity::class.java)
         intent.putExtra(AddEditTaskFragment.KEY_TASK_ID, itemData.task.id)
-        activity.startOnAnim(intent)
+        act.startOnAnim(intent)
     }
 
     private fun onClickToSetFilter() {
